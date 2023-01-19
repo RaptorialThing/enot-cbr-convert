@@ -1,0 +1,26 @@
+<?php include_once dirname(__FILE__).'/../header.html'; ?>
+<div class="center headline">
+    Конвертер валюты с сайта cbr.ru 
+</div>
+
+<div class="frm"> 
+        <h2 class="headline">Войти</h2>  
+        <form name="auth" action = "/login" method = "POST">  
+            <p>  
+                <label> Имя: </label>  
+                <input type = "text" id ="login" name  = "login" />  
+            </p>  
+            <p>  
+                <label> Пароль: </label>  
+                <input type = "password" id ="password" name  = "password" />  
+            </p>  
+            <p>     
+                <input type="submit" id = "btn" value = "Войти" />  
+            </p>  
+        </form> 
+        <div class="green">
+            <?php if (!empty($vars['errors'][0])) { echo $vars['errors'][0]; } ?>
+        </div> 
+</div>  
+
+<?php include_once dirname(__FILE__).'/../footer.html'; ?>

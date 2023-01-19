@@ -1,0 +1,56 @@
+<?php 
+
+if (!empty($vars['currencies'])) { 
+    
+    echo "<select id='currencies'>";
+    foreach ($vars['currencies'] as $currency) {
+
+
+    echo  "<option id=" . $currency["cbr_id"] . " value=\"{ 'nominal': ". "'".$currency['nominal']."'" . ", 'value': " . "'".$currency['value']."'" . " }\">" . $currency['name'] . " " . $currency['char_code'] . "</option>";
+
+    }
+    echo "</select>";
+    echo "</br> <input type='number' class='' id='valute2rubVal'>";
+
+    echo "</br>В рублях: <div class='headline' id='valute2rubFrm'> </div> <button onclick='valute2rub();'>Перевести</button>";
+
+    echo "</br></br> <input type='number' class='' id='rub2valuteVal'>";
+
+    echo "</br>В валюте: <div class='headline' id='rub2valuteFrm'> </div> <button onclick='rub2valuteClk();'>Перевести</button>";
+    echo "</br>";
+
+} else {
+    echo "нет данных о валютных парах";
+}
+?>
+<script>
+function valute2rub() {
+    options = document.getElementById('currencies');
+    opt = options.value;
+    let obj = JSON.parse(JSON.stringify(opt));
+    eval("curr="+obj);
+
+    value2rub = document.getElementById('valute2rubVal');
+    value = value2rub.value.replace(",",".");
+    value = parseFloat(value);
+    let result = ( parseFloat(curr.value.replace(",",".") ) / parseFloat(curr.nominal) ) * parseFloat(value);
+
+    document.getElementById('valute2rubFrm').textContent = Number(result.toFixed(4));  
+}
+
+function rub2valuteClk() {
+    options = document.getElementById('currencies');
+    opt = options.value;
+    let obj = JSON.parse(JSON.stringify(opt));
+    eval("curr="+obj);
+
+    rub2valute = document.getElementById('rub2valuteVal');
+    value = rub2valute.value.replace(",",".");
+    value = parseFloat(value);
+    
+    let result = ( parseFloat(curr.nominal)  / parseFloat(curr.value.replace(",",".") ) ) * parseFloat(value);
+
+    document.getElementById('rub2valuteFrm').textContent = Number(result.toFixed(4));  
+}
+
+</script>

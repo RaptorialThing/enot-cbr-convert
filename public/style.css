@@ -1,0 +1,42 @@
+body{   
+    background: #eee; 
+    color: rgba(0, 0, 0, 0.5); 
+}  
+.frm{  
+    border: solid gray 1px;  
+    width:50%;  
+    border-radius: 2px;  
+    margin: 10px auto;  
+    background: white;  
+    padding: 50px;  
+}  
+.btn{  
+    color: #fff;  
+    background: #337ab7;  
+    padding: 7px;  
+    margin-left: 70%;  
+}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+.headline {  
+    color: #7eb1dc;
+}
+.green {
+    color: #008a52;
+}
+a {
+    color: #8B89E1;
+}
+a:visited {
+    color: #16148D;
+}
