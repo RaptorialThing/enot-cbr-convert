@@ -5,7 +5,6 @@ try {
     $pdo = new \PDO('mysql:host='.HOST.';dbname='.DBNAME.';charset='.CHARSET, USERNAME, PASSWORD);
     $sql = "
             CREATE TABLE  IF NOT EXISTS `currencies` (
-              `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `cbr_id` varchar(30) NOT NULL,
               `num_code` int(3) unsigned NOT NULL,
               `char_code` varchar(3) NOT NULL,
@@ -14,7 +13,7 @@ try {
               `value` varchar(120) NOT NULL,
               `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
               `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-              PRIMARY KEY (`id`)
+              PRIMARY KEY (`cbr_id`)
             ) ENGINE=MyISAM DEFAULT CHARSET=".CHARSET.";
     ";
     $pdo->query($sql);
