@@ -14,6 +14,6 @@ class User extends Model
 
     static public function hash_passwd($password)
     {
-        return md5(md5(trim($password)));
+        return md5(md5(trim($password)));// md5 deprecated; use  password_hash() instead
     }
 }
